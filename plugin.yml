@@ -2,4 +2,3 @@ name: major
 main: major\major
 version: 2.6.3
 api: 1.17.0
-author: janp
