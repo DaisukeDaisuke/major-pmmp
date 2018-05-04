@@ -25,7 +25,7 @@ class major extends PluginBase implements Listener{
 				if(!$player->isSneaking()){
 					$block = $event->getblock();
 					if(isset($this->data[$name])){
-						$distance = $this->data[$name]->distance($block->asVector3());//
+						$distance = $this->data[$name]->distance($block->asVector3());
 						$player->sendMessage("§6".(round($distance,2)+1)." m");
 					}else{
 						$this->data[$name] = $block->asVector3();
