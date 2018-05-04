@@ -25,10 +25,10 @@ class major extends PluginBase implements Listener{
 				if(!$player->isSneaking()){
 					$block = $event->getblock();
 					if(isset($this->data[$name])){
-						$dist = ($block->x-$this->data[$name][0]) * ($block->x-$this->data[$name][0]) + ($block->y-$this->data[$name][1]) * ($block->y-$this->data[$name][1]) + ($block->z-$this->data[$name][2]) * ($block->z-$this->data[$name][2]);
-						$player->sendMessage("§6".(round(sqrt($dist),2)+1)." m");
+						$distance = $this->data[$name]->distance($block->asVector3());//
+						$player->sendMessage("§6".(round($distance,2)+1)." m");
 					}else{
-						$this->data[$name] = [$block->x,$block->y,$block->z];
+						$this->data[$name] = $block->asVector3();
 						$player->sendMessage("[メジャー]このブロックの座標を記録しました。 {$block->x}, {$block->y}, {$block->z} ");	
 					}
 				}else{
